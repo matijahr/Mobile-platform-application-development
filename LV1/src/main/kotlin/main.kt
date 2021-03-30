@@ -1,5 +1,6 @@
 //import java.lang.NumberFormatException
 import kotlin.random.Random
+//eachCount
 
 fun main(args: Array<String>) {
     /*
@@ -20,25 +21,25 @@ fun main(args: Array<String>) {
     //Ne radi!!!!
     val LargeStraight = mutableListOf<Die>(Die(1),Die(2),Die(3),Die(4),Die(5))
 
-    val DiceInHands = Hand(ListOfdices)
+    val DiceInHands = Hand(LargeStraight)
 
 
     //DiceInHands.printHand()
-    DiceInHands.rollHand()
+    //DiceInHands.rollHand()
     DiceInHands.printHand()
 
 
     //DiceInHands.isLargeStraight()
     //DiceInHands.isSameNumber()
 
-    var answer:String?
+    var answer:String
     var DiceToRoll: Int?
     var numberOfDiceToRoll: Int?
     val DicesToRoll = mutableListOf<Int>()
 
     do {
         println("Do you want to roll again (Enter 'yes' or 'no')")
-        answer = readLine()!!.toString()
+        answer = readLine() ?: ""
 
         if (answer=="yes"){
 
@@ -56,6 +57,8 @@ fun main(args: Array<String>) {
                 DiceInHands.rollSpecificDice(DicesToRoll)
             }
         }
+
+
         /*
         if (answer=="yes"){
             println("Enter dice number you want to roll again")
@@ -184,8 +187,6 @@ class Hand(var DieInHands: List<Die>) : IResultCheck{
 
         val numbersMap = mutableMapOf("NoOfOnes" to 0, "NoOfTwos" to 0,"NoOfThrees" to 0,"NoOfFours" to 0,"NoOfFives" to 0,"NoOfSixes" to 0)
 
-
-
         for(number in DieInHands){
             when(number.DieNumber) {
                 1 -> numbersMap.merge("NoOfOnes",1, Int::plus)
@@ -198,7 +199,24 @@ class Hand(var DieInHands: List<Die>) : IResultCheck{
             }
         }
 
-        val LargeScale: Boolean=numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1)
+        //val largeScale: Boolean=numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1)
+        //println(numbersMap)
+        var largeScale:Boolean=false
+
+        if(numbersMap.get("NoOfOnes")==1
+            && numbersMap.get("NoOfTwos")==1
+            && numbersMap.get("NoOfThrees")==1
+            && numbersMap.get("NoOfFours")==1
+            && numbersMap.get("NoOfFives")==1){
+            largeScale=true
+        }else if (numbersMap.get("NoOfSixes")==1
+            && numbersMap.get("NoOfTwos")==1
+            && numbersMap.get("NoOfThrees")==1
+            && numbersMap.get("NoOfFours")==1
+            && numbersMap.get("NoOfFives")==1){
+            largeScale=true
+        }
+
 
         if (numbersMap.containsValue(5)){
             //5 istih brojeva
@@ -212,7 +230,7 @@ class Hand(var DieInHands: List<Die>) : IResultCheck{
         }else if(numbersMap.containsValue(3)) {
             //tri ista broja
             println("You got three of a kind !!!")
-        }else if(LargeScale){
+        }else if(largeScale){
             //može li nekako sa numbersMap.all {  }
             //skala 1-2-3-4-5 ili 2-3-4-5-6
             println("You got large scale !!!")
