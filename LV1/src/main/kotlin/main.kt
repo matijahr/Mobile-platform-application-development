@@ -3,38 +3,17 @@ import kotlin.random.Random
 //eachCount
 
 fun main(args: Array<String>) {
-    /*
-    val matija = Die()
-    println("Defaultni kontruktor: ($matija.DieNumber)")
-    println(matija)
-    matija.roll()
-    println(matija.DieNumber)
-    */
+
 
     val ListOfdices = mutableListOf<Die>(Die(),Die(),Die(),Die(),Die())
+    val DiceInHands =  Hand(ListOfdices)
 
-    val PokerDices=mutableListOf<Die>(Die(2),Die(2),Die(3),Die(3),Die(3))
-    val YahtzeeDices = mutableListOf<Die>(Die(6),Die(6),Die(6),Die(6),Die(6))
-    val FourOfAKind = mutableListOf<Die>(Die(2),Die(2),Die(2),Die(2),Die(1))
-    val ThreeOfAKind = mutableListOf<Die>(Die(2),Die(2),Die(2),Die(5),Die(1))
-
-    //Ne radi!!!!
-    val LargeStraight = mutableListOf<Die>(Die(1),Die(2),Die(3),Die(4),Die(5))
-
-    val DiceInHands = Hand(LargeStraight)
-
-
-    //DiceInHands.printHand()
-    //DiceInHands.rollHand()
+    DiceInHands.rollHand()
     DiceInHands.printHand()
-
-
-    //DiceInHands.isLargeStraight()
-    //DiceInHands.isSameNumber()
+    DiceInHands.ResaultCheck()
 
     var answer:String
-    var DiceToRoll: Int?
-    var numberOfDiceToRoll: Int?
+    var numberOfDiceToRoll: Int
     val DicesToRoll = mutableListOf<Int>()
 
     do {
@@ -46,47 +25,33 @@ fun main(args: Array<String>) {
             println("How many dice do you want to roll again? ")
             numberOfDiceToRoll = readLine()!!.toInt()
 
+            if (numberOfDiceToRoll>5 || numberOfDiceToRoll==0){
+                numberOfDiceToRoll=0;
+                println("Wrong input")
+            }
+
             if(numberOfDiceToRoll==5){
                 DiceInHands.rollHand()
-                DiceInHands.printHand()
-            }else {
+            }else if (numberOfDiceToRoll!=0){
                 for (i in 1..numberOfDiceToRoll) {
                     println("Enter dice number you want to roll again")
                     DicesToRoll.add(readLine()!!.toInt())
                 }
                 DiceInHands.rollSpecificDice(DicesToRoll)
             }
+            DiceInHands.printHand()
+            DiceInHands.ResaultCheck()
+
+
         }
-
-
-        /*
-        if (answer=="yes"){
-            println("Enter dice number you want to roll again")
-            DiceToRoll = readLine()!!.toInt()
-            if(DiceToRoll !is Int) {
-            } else {
-                println(DiceInHands.rollSpecificDice(DiceToRoll))
-            }
-        }*/
     }while (answer!="no")
 
     println("Your final hand")
     DiceInHands.printHand()
-
-    /*
-    println("Enter dice you want to roll again")
-    var DiceToRoll: Int?
-    DiceToRoll = readLine()!!.toInt()
-
-    if(DiceToRoll !is Int) {
-        //DiceInHands.printHand()
-    } else {
-        println(DiceInHands.rollSpecificDice(DiceToRoll))
-    }*/
-
-
+    DiceInHands.ResaultCheck()
 
 }
+
 
 class Die(var DieNumber:Int){
 
@@ -108,23 +73,38 @@ class Die(var DieNumber:Int){
 interface IResultCheck{
     //može li se nekako napraviti da pri definiranju ne vraća nikakv tip. Da se makne "return true"
 
-    /*fun isYahtzee():Boolean{
+    fun isYahtzee():Boolean{
         return true
-    }*/
+    }
 
-    /*fun isLargeStraight(){}*/
+    fun isLargeStraight():Boolean{
+        return true
+    }
 
-    fun isSameNumber(){}
+    fun isPoker():Boolean{
+        return true
+    }
+
+    fun isThreeOfAKind():Boolean{
+        return true
+    }
+
+    fun isFourOfAKind():Boolean{
+        return true
+    }
+
+    fun checkNumberInHand(){}
 
 }
 
 class Hand(var DieInHands: List<Die>) : IResultCheck{
+
+    val numbersMap = mutableMapOf("NoOfOnes" to 0, "NoOfTwos" to 0,"NoOfThrees" to 0,"NoOfFours" to 0,"NoOfFives" to 0,"NoOfSixes" to 0)
+
     fun printHand(){
         for (dice in DieInHands) {
             println(dice)
         }
-        //isLargeStraight()
-        isSameNumber()
     }
 
     fun rollHand(){
@@ -138,54 +118,61 @@ class Hand(var DieInHands: List<Die>) : IResultCheck{
         for (i in 0 until diceToRoll.size) {
             DieInHands[diceToRoll[i] - 1].roll()
         }
-        printHand()
     }
-/*
-    fun rollSpecificDice(diceToRoll:Int){
-        DieInHands[diceToRoll-1].roll()
-        printHand()
-    }*/
 
-    /*
     override fun isYahtzee():Boolean {
-        //val YahtzeeHand = listOf<Int>(1,2,3,4,5)
-        for (number in 1..6) {
-
-            //Može li na drugačiji/bolji način
-            if(DieInHands.containsAll(listOf(number,number,number,number,number))){
-              return true
-          }
+        if (numbersMap.containsValue(5)){
+            return true
         }
-        return false
-    }*/
+        else {
+            return false
+        }
+    }
 
-    //Skala 1-2-3-4-5 ili 2-3-4-5-6
-    /*override fun isLargeStraight(){
-        val LargeStraightHand1 = listOf<Die>(Die(1),Die(2),Die(3),Die(4),Die(5))
-        val LargeStraightHand2 = listOf<Int>(2,3,4,5,6)
+    override fun isPoker(): Boolean {
+        if (numbersMap.containsValue(2) && numbersMap.containsValue(3)){
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
-
-        if(DieInHands.containsAll(LargeStraightHand1)) {
-            println("You got a large straight!!!")
-        }else if (LargeStraightHand2.containsAll(DieInHands)){
-            println("You got a large straight!!!")
+    override fun isLargeStraight():Boolean{
+        if(numbersMap.get("NoOfOnes")==1
+            && numbersMap.get("NoOfTwos")==1
+            && numbersMap.get("NoOfThrees")==1
+            && numbersMap.get("NoOfFours")==1
+            && numbersMap.get("NoOfFives")==1){
+            return true
+        }else if (numbersMap.get("NoOfSixes")==1
+            && numbersMap.get("NoOfTwos")==1
+            && numbersMap.get("NoOfThrees")==1
+            && numbersMap.get("NoOfFours")==1
+            && numbersMap.get("NoOfFives")==1){
+            return true
         }else{
-            println("You haven't got a large straight")
+            return false
         }
-    }*/
+    }
 
+    override fun isThreeOfAKind(): Boolean {
+        if(numbersMap.containsValue(3)) {
+            return true
+        }else{
+            return false
+        }
+    }
 
-    override fun isSameNumber(){
+    override fun isFourOfAKind(): Boolean {
+        if(numbersMap.containsValue(4)){
+            return true
+        }else{
+            return false
+        }
+    }
 
-        /*
-        var NoOfOnes=0
-        var NoOfTwos=0
-        var NoOfThrees=0
-        var NoOfFours=0
-        var NoOfFives=0
-        var NoOfSixes=0*/
-
-        val numbersMap = mutableMapOf("NoOfOnes" to 0, "NoOfTwos" to 0,"NoOfThrees" to 0,"NoOfFours" to 0,"NoOfFives" to 0,"NoOfSixes" to 0)
+    override fun checkNumberInHand(){
 
         for(number in DieInHands){
             when(number.DieNumber) {
@@ -198,56 +185,34 @@ class Hand(var DieInHands: List<Die>) : IResultCheck{
                 else -> println("Not a number!!")
             }
         }
+    }
 
-        //val largeScale: Boolean=numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1) && numbersMap.containsValue(1)
-        //println(numbersMap)
-        var largeScale:Boolean=false
+    fun ResaultCheck(){
+        checkNumberInHand()
+        val resaultYahtzee:Boolean=isYahtzee()
+        val resaultStraight:Boolean=isLargeStraight()
+        val resaultPoker:Boolean=isPoker()
+        val resault4OfAKind:Boolean=isFourOfAKind()
+        val resault3OfAKind:Boolean=isThreeOfAKind()
 
-        if(numbersMap.get("NoOfOnes")==1
-            && numbersMap.get("NoOfTwos")==1
-            && numbersMap.get("NoOfThrees")==1
-            && numbersMap.get("NoOfFours")==1
-            && numbersMap.get("NoOfFives")==1){
-            largeScale=true
-        }else if (numbersMap.get("NoOfSixes")==1
-            && numbersMap.get("NoOfTwos")==1
-            && numbersMap.get("NoOfThrees")==1
-            && numbersMap.get("NoOfFours")==1
-            && numbersMap.get("NoOfFives")==1){
-            largeScale=true
-        }
-
-
-        if (numbersMap.containsValue(5)){
+        if (resaultYahtzee){
             //5 istih brojeva
-            println("YAHTZEE !!!")
-        }else if(numbersMap.containsValue(2) && numbersMap.containsValue(3)){
-            //2 + 3 ista broja
-            println("Poker !!!")
-        }else if(numbersMap.containsValue(4)){
-            //četiri ista broja
-            println("You got four of a kind !!!")
-        }else if(numbersMap.containsValue(3)) {
-            //tri ista broja
-            println("You got three of a kind !!!")
-        }else if(largeScale){
-            //može li nekako sa numbersMap.all {  }
+            println("YAHTZEE!!")
+        }else if (resaultStraight){
             //skala 1-2-3-4-5 ili 2-3-4-5-6
             println("You got large scale !!!")
+        }else if (resaultPoker){
+            //2 + 3 iste kockice
+            println("Poker!!!")
+        }else if (resault4OfAKind){
+            //četiri ista broja
+            println("You got four of a kind !!!")
+        }else if (resault3OfAKind){
+            //tri ista broja
+            println("You got three of a kind !!!")
         }
+        numbersMap.clear()
     }
 }
 
-
-
-
-/*
-val numbers = mutableListOf<Int>(6,5,4,3,2,1)
-val dice= mutableListOf<Die>(Die(),Die(),Die(),Die(),Die(),Die())
-
-for(die in dice){
-   println(die)
-   die.roll()
-}
-*/
 
