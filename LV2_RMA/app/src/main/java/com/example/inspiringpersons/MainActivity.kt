@@ -15,7 +15,6 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
-    private val adapter = InspiringPersonAdapter(PersonsRepository.getPersons())
     private val KEY_MESSAGE: String = "message"
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,14 +1,11 @@
 package com.example.inspiringpersons.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inspiringpersons.R
 import com.example.inspiringpersons.models.InspiringPerson
-import com.example.inspiringpersons.persistence.PersonsRepository
 
 class InspiringPersonAdapter(val inspiringPerson: List<InspiringPerson>) : RecyclerView.Adapter<InspiringPersonViewHolder>() {
 
@@ -22,8 +19,7 @@ class InspiringPersonAdapter(val inspiringPerson: List<InspiringPerson>) : Recyc
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_inspiring_person, parent, false)
 
-        val inspPerViewHodler = InspiringPersonViewHolder(view)
-        return inspPerViewHodler
+        return InspiringPersonViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: InspiringPersonViewHolder, position: Int) {
