@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="item_inspiring_person_padding">10dp</dimen>
+    <dimen name="item_inspiring_person_margin">5dp</dimen>
+    <dimen name="inspiringPerson_iv_width">100dp</dimen>
+    <dimen name="inspiringPerson_iv_height">100dp</dimen>
+
+    <dimen name="marginLeft_tv_noteItem_name">10dp</dimen>
+    <dimen name="marginLeft_tv_noteItem_description">10dp</dimen>
+
+    <dimen name="newInspiringPerson_margin">20dp</dimen>
+    <dimen name="newInspiringPerson_headerSize">36sp</dimen>
+    <dimen name="inspiringPerson_tvName_width">0dp</dimen>
+    <dimen name="inspiringPerson_tvDoB_width">0dp</dimen>
+    <dimen name="inspiringPerson_tvDescription_width">0dp</dimen>
+
+    <dimen name="itemInspiringPerson_tvDescription_marginTop">10dp</dimen>
+    <dimen name="itemInspiringPerson_tvDoB_marginTop">10dp</dimen>
+</resources>

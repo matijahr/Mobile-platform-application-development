@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.NewInspiringPersonActivity"
+    android:background="@color/dark_gray">
+
+
+    <TextView
+        android:id="@+id/tv_newInspiringPerson_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+
+        android:text="Enter a new inspiring person"
+        android:textAlignment="center"
+        android:textSize="@dimen/newInspiringPerson_headerSize"
+        android:textColor="@color/white"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_newInspiringPerson_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+
+        android:hint="Enter full name"
+        app:layout_constraintTop_toBottomOf="@id/tv_newInspiringPerson_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_newInspiringPerson_description_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+
+        android:hint="Enter details (one or two sentences)"
+        app:layout_constraintTop_toBottomOf="@id/et_newInspiringPerson_name_input"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_newInspiringPerson_DoB_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+
+        android:hint="Enter date of birth"
+        app:layout_constraintTop_toBottomOf="@id/et_newInspiringPerson_description_input"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_newInspiringPerson_pictureInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+
+        android:hint="Enter URL of a picture"
+        app:layout_constraintTop_toBottomOf="@id/et_newInspiringPerson_DoB_input"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_newInspiringPerson_quoteInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+
+        android:hint="Input a quote"
+        app:layout_constraintTop_toBottomOf="@id/et_newInspiringPerson_pictureInput"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:id="@+id/b_commit_newInspiringPerson"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/newInspiringPerson_margin"
+        android:text="@string/newInspiringPerson_ButtonText"
+
+        android:backgroundTint="@color/orange"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_newInspiringPerson_quoteInput"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
