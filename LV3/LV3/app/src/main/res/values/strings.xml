@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bird color counter</string>
+    <string name="btnRedText">Red bird</string>
+    <string name="btnBlueText">Blue bird</string>
+    <string name="btnWhiteText">White bird</string>
+    <string name="btnGreenText">Green bird</string>
+    <string name="btnResetText">Reset counter</string>
+
+    <string name="tvCounterDefaultValue">0</string>
+</resources>
