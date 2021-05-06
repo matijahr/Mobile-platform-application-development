@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.lv4_birdscounter.main.viewmodel.BirdsCounterViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_gray"
+        tools:context=".main.view.BirdsCounter">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_vertical_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+        <TextView
+            android:id="@+id/tvCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/tvMargin"
+            android:background="@color/light_gray"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+
+            android:textSize="@dimen/tvTextSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/tvCounterDefaultValue" />
+
+        <Button
+            android:id="@+id/btnRed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/btnMargin"
+            android:backgroundTint="@color/red"
+            android:text="@string/btnRedText"
+
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/guide_vertical_center"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCounter"
+            app:strokeColor="@color/black"
+
+            app:strokeWidth="@dimen/btnStrokeWidth"
+            android:onClick="@{()->viewmodel.onButtonPressed(viewmodel.RED)}"/>
+
+        <Button
+            android:id="@+id/btnBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/btnMargin"
+            android:backgroundTint="@color/blue"
+            android:text="@string/btnBlueText"
+
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="@id/guide_vertical_center"
+            app:layout_constraintTop_toBottomOf="@id/tvCounter"
+            app:strokeColor="@color/black"
+
+            app:strokeWidth="@dimen/btnStrokeWidth"
+            android:onClick="@{()->viewmodel.onButtonPressed(viewmodel.BLUE)}"/>
+
+
+        <Button
+            android:id="@+id/btnWhite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/btnMargin"
+            android:backgroundTint="@color/white"
+            android:text="@string/btnWhiteText"
+
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/guide_vertical_center"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnRed"
+            app:strokeColor="@color/black"
+
+            app:strokeWidth="@dimen/btnStrokeWidth"
+            android:onClick="@{()->viewmodel.onButtonPressed(viewmodel.WHITE)}"/>
+
+
+        <Button
+            android:id="@+id/btnGreen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/btnMargin"
+            android:backgroundTint="@color/green"
+            android:text="@string/btnGreenText"
+
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="@id/guide_vertical_center"
+            app:layout_constraintTop_toBottomOf="@id/btnBlue"
+            app:strokeColor="@color/black"
+
+            app:strokeWidth="@dimen/btnStrokeWidth"
+            android:onClick="@{()->viewmodel.onButtonPressed(viewmodel.GREEN)}"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:backgroundTint="@color/black"
+            android:text="@string/btnResetText"
+
+            android:textColor="@color/white"
+
+
+            app:layout_constraintLeft_toLeftOf="@id/guide_vertical_center"
+            app:layout_constraintRight_toRightOf="@id/guide_vertical_center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnWhite"
+
+            android:onClick="@{()->viewmodel.onResetButtonPressed()}"
+            />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
