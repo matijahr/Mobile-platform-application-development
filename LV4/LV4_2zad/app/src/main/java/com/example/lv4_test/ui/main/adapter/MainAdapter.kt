@@ -22,14 +22,21 @@ class MainAdapter(private val users: ArrayList<User>) : RecyclerView.Adapter<Mai
             itemBinding.textViewUserName.text = user.name
             itemBinding.textViewUserEmail.text = user.email
 
+
+            // There is a problem with provided link so picture wont work
+            // so all picture will display stat_notify_error
+
             Picasso.get()
                 .load(user.avatar)
                 .fit()
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_launcher_foreground)
                 .error(android.R.drawable.stat_notify_error)
                 .into(itemBinding.imageViewAvatar)
 
+
         }
+
+
 
     }
 
