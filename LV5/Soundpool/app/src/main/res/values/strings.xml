@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BahraPool</string>
+
+    <string name="btn_bahra1">Moja moć</string>
+    <string name="btn_bahra2">Normalno stoljeće</string>
+    <string name="btn_bahra3">mutikaša</string>
+    <string name="btn_bahra4">sprechen Sie Bahra</string>
+    <string name="btn_bahra5">Svjetski čovjek</string>
+    <string name="btn_bahra6">Najljepša karijera</string>
+</resources>

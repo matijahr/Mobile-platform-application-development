@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.BahraPool">
+
+    <Button
+        android:id="@+id/btnBahra1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:text="@string/btn_bahra1"
+
+        android:textAlignment="center"
+
+        app:layout_constraintEnd_toStartOf="@+id/btnBahra2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBahra2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:text="@string/btn_bahra2"
+
+        android:textAlignment="center"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBahra1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btnBahra3"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:text="@string/btn_bahra3"
+
+        android:textAlignment="center"
+
+        app:layout_constraintEnd_toStartOf="@+id/btnBahra4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBahra1" />
+
+    <Button
+        android:id="@+id/btnBahra4"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:text="@string/btn_bahra4"
+
+        android:textAlignment="center"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBahra3"
+        app:layout_constraintTop_toBottomOf="@id/btnBahra2" />
+
+
+    <Button
+        android:id="@+id/btnBahra5"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:text="@string/btn_bahra5"
+        android:textAlignment="center"
+
+        app:layout_constraintTop_toBottomOf="@+id/btnBahra3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btnBahra6"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:text="@string/btn_bahra6"
+        android:textAlignment="center"
+
+        app:layout_constraintTop_toBottomOf="@id/btnBahra5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
