@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PocketEngineer</string>
+    <string name="txt_first_band">1st band color</string>
+    <string name="txt_second_band">2st band color</string>
+    <string name="txt_multiplier">Multiplier</string>
+    <string name="btn_calculate_text">Calculate Resistance</string>
+    <string name="txt_tolerance">Tolerance</string>
+    <string name="tv_amplitude_text">Input amplitude</string>
+    <string name="tv_value_text">Input value</string>
+    <string name="btn_draw_text">Draw function</string>
+    <string name="tv_header_text">Enter a new inspiring person</string>
+    <string name="et_roomName_text">Enter room name</string>
+    <string name="b_commit_text">Add a new room to database</string>
+</resources>

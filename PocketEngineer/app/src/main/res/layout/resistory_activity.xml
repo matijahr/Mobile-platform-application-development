@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.view.ResistorActivity"
+    android:background="@color/dark_gray">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_first"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/child_layout_height"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/layout_margin"
+        android:background="@color/light_blue"
+        >
+
+        <TextView
+            android:id="@+id/txt_first_band"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/txt_margin"
+            android:text="@string/txt_first_band"
+
+            android:textSize="@dimen/txt_textSize"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/sp_first_band"/>
+
+        <Spinner
+            android:id="@+id/sp_first_band"
+            android:layout_width="@dimen/sp_width"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/sp_padding"
+            android:textColor="@color/white"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_first_band"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_second"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/child_layout_height"
+        app:layout_constraintTop_toBottomOf="@+id/layout_first"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/light_blue"
+        android:layout_margin="@dimen/layout_margin"
+        >
+
+        <TextView
+            android:id="@+id/txt_second_band"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/txt_margin"
+            android:text="@string/txt_second_band"
+
+            android:textSize="@dimen/txt_textSize"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sp_second_band"
+
+
+            />
+
+        <Spinner
+            android:id="@+id/sp_second_band"
+            android:layout_width="@dimen/sp_width"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/sp_padding"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_second_band"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_third"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/child_layout_height"
+        app:layout_constraintTop_toBottomOf="@id/layout_second"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/light_blue"
+        android:layout_margin="@dimen/layout_margin"
+        >
+
+        <TextView
+            android:id="@+id/txt_multiplier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/txt_margin"
+            android:text="@string/txt_multiplier"
+
+            android:textSize="@dimen/txt_textSize"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sp_multiplier"
+
+
+            />
+
+        <Spinner
+            android:id="@+id/sp_multiplier"
+            android:layout_width="@dimen/sp_width"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/sp_padding"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_multiplier"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_fourth"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/child_layout_height"
+        app:layout_constraintTop_toBottomOf="@id/layout_third"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/light_blue"
+        android:layout_margin="@dimen/layout_margin"
+        >
+
+        <TextView
+            android:id="@+id/txt_tolerance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/txt_margin"
+            android:text="@string/txt_tolerance"
+
+            android:textSize="@dimen/txt_textSize"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sp_tolerance"
+
+
+            />
+
+        <Spinner
+            android:id="@+id/sp_tolerance"
+            android:layout_width="@dimen/sp_width"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/sp_padding"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_tolerance"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txt_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:text="@tools:sample/lorem"
+        android:textSize="@dimen/txt_result_textSize"
+        android:layout_margin="@dimen/txt_margin"
+        android:textColor="@color/white"
+
+        app:layout_constraintTop_toBottomOf="@+id/layout_fourth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@color/light_blue"
+        android:text="@string/btn_calculate_text"
+
+        app:layout_constraintTop_toBottomOf="@+id/txt_result"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

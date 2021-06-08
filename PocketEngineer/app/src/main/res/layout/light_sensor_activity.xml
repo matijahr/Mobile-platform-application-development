@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context=".ui.main.view.LightSensorActivity">
+
+    <TextView
+        android:id="@+id/txt_sensor_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/LightSensor_txt_margin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_sensorValue_textSize"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txt_lightning"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/txt_lightning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/LightSensor_txt_margin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_lightning_textSize"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rv_view_favorites"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sensor_value"
+        tools:text="@tools:sample/lorem" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_view_favorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/recyclerView_favorites_margin"
+        android:padding="@dimen/recyclerView_favorites_padding"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/txt_lightning"
+        tools:layout_editor_absoluteX="10dp"
+
+        tools:listitem="@layout/room_lighting_item" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_addRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:fabSize="normal"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_input_add"
+
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/white"
+        android:tint="@color/dark_gray"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
