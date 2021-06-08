@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "84983186248",
+    "project_id": "pocketengineer-9c5fa",
+    "storage_bucket": "pocketengineer-9c5fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84983186248:android:b32b652532276696c1297d",
+        "android_client_info": {
+          "package_name": "com.example.pocketengineer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84983186248-a10na9h8k7r1vpueoa0udjkokativg3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQSbIz8yzf6foaIkGR3F5f0BlSVad7R9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84983186248-a10na9h8k7r1vpueoa0udjkokativg3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
