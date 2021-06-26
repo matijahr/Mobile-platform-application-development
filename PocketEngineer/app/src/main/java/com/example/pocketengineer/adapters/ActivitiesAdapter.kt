@@ -10,7 +10,7 @@ import com.example.pocketengineer.R
 import com.example.pocketengineer.ui.main.view.GraphViewActivity
 import com.example.pocketengineer.ui.main.view.ResistorActivity
 
-class ActivitiesAdapter(val titles: List<String>) : RecyclerView.Adapter<ActivitiesViewHolder>() {
+class ActivitiesAdapter(private val titles: List<String>) : RecyclerView.Adapter<ActivitiesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitiesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_title, parent, false)
@@ -29,6 +29,13 @@ class ActivitiesAdapter(val titles: List<String>) : RecyclerView.Adapter<Activit
     }
 }
 
+
+/*
+    check what item has been clicked on and starts that activity
+    position[0] = Resistor activity
+    position[1] = Light sensor activity
+    position[2] = Draw a trig. function activity
+*/
 private fun goToActivity(context: Context,position: Int) {
     if (position == 0){
         context.startActivity(
@@ -42,7 +49,7 @@ private fun goToActivity(context: Context,position: Int) {
     }
     if (position == 2){
         context.startActivity(
-                Intent(context, GraphViewActivity::class.java)
+            Intent(context, GraphViewActivity::class.java)
         )
     }
 }

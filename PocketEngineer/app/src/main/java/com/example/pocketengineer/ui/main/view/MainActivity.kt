@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = PocketEngineerMainBinding.inflate(layoutInflater)
 
+        //initialize recyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,

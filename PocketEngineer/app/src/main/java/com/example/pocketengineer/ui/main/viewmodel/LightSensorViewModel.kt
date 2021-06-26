@@ -12,13 +12,14 @@ import com.google.firebase.database.*
 class LightSensorViewModel : ViewModel() {
 
     private var roomLightingList : ArrayList<RoomLighting> = arrayListOf()
-    private val _brightness: MutableLiveData<Double> = MutableLiveData<Double>(0.0)
-    val brightness: LiveData<Double> = _brightness
+    private val _brightness: MutableLiveData<Int> = MutableLiveData<Int>(0)
+    val brightness: LiveData<Int> = _brightness
 
 
     fun onSensorChanged(sensorEvent: SensorEvent?) {
+        //making sure that sensorEvent is from light sensor
         if(sensorEvent?.sensor?.type == Sensor.TYPE_LIGHT){
-            _brightness.value?.let {_brightness.postValue(sensorEvent.values[0].toDouble()) }
+            _brightness.value?.let {_brightness.postValue(sensorEvent.values[0].toInt()) }
         }
     }
 
@@ -28,7 +29,10 @@ class LightSensorViewModel : ViewModel() {
         Database.push().setValue(newRoom)
     }
 
-    fun getData(children: Iterable<DataSnapshot>, Database: DatabaseReference): ArrayList<RoomLighting> {
+    fun getData(children: Iterable<DataSnapshot>): ArrayList<RoomLighting> {
+        //erase old data so it doesn't duplicate
+        roomLightingList.clear()
+
         for(roomsSnapshot in children){
             val rooms = roomsSnapshot.getValue(RoomLighting::class.java)
             //!! makes sure that rooms object is not null. If it is NullException is thrown

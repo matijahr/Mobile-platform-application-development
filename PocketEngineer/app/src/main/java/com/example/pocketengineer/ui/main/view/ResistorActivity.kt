@@ -38,52 +38,49 @@ class ResistorActivity : AppCompatActivity() {
     }
 
     private fun setUpSpinnerListener() {
+        //1st band color choices
         binding.spFirstBand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 //sending data to viewModel to be processed
+                // p2 represents what position in the spinner has been clicked
                 viewModel.setFirstBand(ResistorOptions.bandColors[p2])
                 userDataProvider.firstBand = p2
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                binding.txtResult.text = "Please select 1st band color"
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
 
         }
 
+        //2nd band color choices
         binding.spSecondBand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewModel.setSecondBand(ResistorOptions.bandColors[p2])
                 userDataProvider.secondBand = p2
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                binding.txtResult.text = "Please select 2nd band color"
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
 
         }
 
+        //Multiplier choices
         binding.spMultiplier.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewModel.setMultiplier(ResistorOptions.multiplierColors[p2])
                 userDataProvider.multiplier = p2
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                binding.txtResult.text = "Please select a multiplier"
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
 
         }
 
+        //Tolerance choices
         binding.spTolerance.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewModel.setTolerance(ResistorOptions.toleranceColors[p2])
                 userDataProvider.tolerance = p2
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                binding.txtResult.text = "Please select a resistor tolerance"
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
 
         }
     }
@@ -108,6 +105,7 @@ class ResistorActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        //getting data from SharedPrefs and displaying it
         binding.spFirstBand.setSelection(userDataProvider.firstBand)
         binding.spSecondBand.setSelection(userDataProvider.secondBand)
         binding.spMultiplier.setSelection(userDataProvider.multiplier)

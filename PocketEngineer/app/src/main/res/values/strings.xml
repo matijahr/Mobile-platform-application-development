@@ -8,7 +8,11 @@
     <string name="tv_amplitude_text">Input amplitude</string>
     <string name="tv_value_text">Input value</string>
     <string name="btn_draw_text">Draw function</string>
-    <string name="tv_header_text">Enter a new inspiring person</string>
-    <string name="et_roomName_text">Enter room name</string>
+    <string name="tv_header_text">Enter a new room</string>
+    <string name="et_roomName_hint">Enter room name</string>
     <string name="b_commit_text">Add a new room to database</string>
+    <string name="tangent">Tangent</string>
+    <string name="cosine">Cosine</string>
+    <string name="sine">Sine</string>
+    <string name="enable_multiple_graphs">Enable multiple graphs</string>
 </resources>

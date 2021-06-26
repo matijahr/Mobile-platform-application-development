@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
 
         android:layout_margin="@dimen/layout_trigs_margin"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/layout_trigs_marginTop"
 
         android:background="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,28 +50,22 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/white"
                 android:checked="true"
-                android:text="Sine" />
+                android:text="@string/sine" />
 
             <RadioButton
                 android:id="@+id/rb_cosine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/white"
-                android:text="Cosine" />
+                android:text="@string/cosine" />
 
             <RadioButton
                 android:id="@+id/rb_tang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/white"
-                android:text="Tangent" />
+                android:text="@string/tangent" />
 
-            <RadioButton
-                android:id="@+id/rb_exp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/white"
-                android:text="Exponential" />
 
         </RadioGroup>
 
@@ -107,23 +101,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Enable multiple graphs"
+            android:text="@string/enable_multiple_graphs"
             android:layout_margin="20dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rg_trig_func" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_enable_multiple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/switch_marginBottom"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/txt_multiple_graphs"
             />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,7 +128,7 @@
         android:layout_height="wrap_content"
 
         android:background="@color/light_blue"
-        android:padding="5dp"
+        android:padding="@dimen/btn_draw_padding"
         android:text="@string/btn_draw_text"
 
         app:layout_constraintTop_toBottomOf="@+id/layout_trigs"

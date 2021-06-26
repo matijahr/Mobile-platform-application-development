@@ -9,10 +9,10 @@ import com.example.pocketengineer.utilities.getValueFromBands
 
 class ResistorViewModel : ViewModel() {
 
-    var firstColor  : Int = 0
-    var secondColor  : Int = 0
-    var multiplier  : Double = 0.0
-    var tolerance  : Double = 0.0
+    private var firstColor  : Int = 0
+    private var secondColor  : Int = 0
+    private var multiplier  : Double = 0.0
+    private var tolerance  : Double = 0.0
 
     fun setFirstBand(color: String){
         // converting string color to corresponding int value
@@ -37,10 +37,9 @@ class ResistorViewModel : ViewModel() {
     fun print():String{
         // [(firstColor)(secondColor)]*multiplier
         var temp = firstColor.toString() + secondColor.toString()
-        var res = temp.toDouble() * multiplier
+        var res = (temp.toDouble() * multiplier)
 
-
-        return res.toString() + "Ohms " + tolerance + "%"
+        return "$res Ohms $tolerance%"
 
     }
 

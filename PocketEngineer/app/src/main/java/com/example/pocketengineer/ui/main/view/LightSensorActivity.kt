@@ -18,15 +18,16 @@ import com.example.pocketengineer.adapters.RoomLightingAdapter
 import com.example.pocketengineer.databinding.LightSensorActivityBinding
 import com.example.pocketengineer.persistence.RoomLighting
 import com.example.pocketengineer.ui.main.viewmodel.LightSensorViewModel
-import com.example.pocketengineer.utilities.getValueFromIlluminances
+import com.example.pocketengineer.utilities.getValueFromIlluminance
 import com.google.firebase.database.*
 
 class LightSensorActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var binding: LightSensorActivityBinding
     lateinit var viewModel: LightSensorViewModel
-    private val sensorManager = PocketEngineerApp.context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
+    //initialize sensorManager and get the required sensor
+    private val sensorManager = PocketEngineerApp.context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
     private lateinit var Database : DatabaseReference
@@ -37,7 +38,7 @@ class LightSensorActivity : AppCompatActivity(), SensorEventListener {
         binding = LightSensorActivityBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this).get(LightSensorViewModel::class.java)
 
-        // referente to firebase
+        // reference to firebase
         Database = FirebaseDatabase.getInstance().getReference("roomLighting")
 
         // getting new room from NewRoomActivity
@@ -56,7 +57,7 @@ class LightSensorActivity : AppCompatActivity(), SensorEventListener {
         // getting and displaying data from sensor
         viewModel.brightness.observe(this, Observer{
             binding.txtSensorValue.text = it.toString()
-            binding.txtLightning.text = getValueFromIlluminances(it)
+            binding.txtLightning.text = getValueFromIlluminance(it)
         })
 
         binding.fabAddRoom.setOnClickListener{addRoomToDatabase()}
@@ -64,7 +65,7 @@ class LightSensorActivity : AppCompatActivity(), SensorEventListener {
     }
 
 
-
+    // working with database
     private fun getDatabaseData(){
 
         Database.addValueEventListener(object : ValueEventListener{
@@ -72,7 +73,7 @@ class LightSensorActivity : AppCompatActivity(), SensorEventListener {
                 if(snapshot.exists()){
 
                     binding.rvViewFavorites.adapter = RoomLightingAdapter(
-                        viewModel.getData(snapshot.children, Database)
+                        viewModel.getData(snapshot.children)
                     )
 
                 }
@@ -88,13 +89,14 @@ class LightSensorActivity : AppCompatActivity(), SensorEventListener {
 
 
     private fun addRoomToDatabase() {
-        val sensorValue = binding.txtSensorValue.toString()
+        val sensorValue = binding.txtSensorValue.text
         val intent = Intent(this,NewRoomActivity::class.java)
         intent.putExtra(KEY_MESSAGE, sensorValue)
         startActivity(intent)
     }
 
 
+    //working with sensor
     override fun onSensorChanged(sensorEvent: SensorEvent?) {
         viewModel.onSensorChanged(sensorEvent)
     }

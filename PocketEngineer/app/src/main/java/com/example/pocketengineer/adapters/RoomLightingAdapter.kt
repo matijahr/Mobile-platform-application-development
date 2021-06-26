@@ -7,20 +7,7 @@ import com.example.pocketengineer.R
 import com.example.pocketengineer.persistence.RoomLighting
 import java.util.ArrayList
 
-class RoomLightingAdapter(val roomList: ArrayList<RoomLighting>) :
-    RecyclerView.Adapter<RoomLightingViewHolder>() {
-
-    private val rooms: MutableList<RoomLighting> = mutableListOf()
-
-    init {
-        refreshData(roomList)
-    }
-
-    private fun refreshData(newRoomRoomList: MutableList<RoomLighting>) {
-        this.rooms.clear()
-        this.rooms.addAll(newRoomRoomList)
-        this.notifyDataSetChanged()
-    }
+class RoomLightingAdapter(val roomList: ArrayList<RoomLighting>) : RecyclerView.Adapter<RoomLightingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomLightingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.room_lighting_item, parent, false)

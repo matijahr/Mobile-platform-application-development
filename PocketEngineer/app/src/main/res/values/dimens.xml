@@ -21,5 +21,23 @@
     <dimen name="tv_header_textSize">30sp</dimen>
     <dimen name="et_roomName_margin">20dp</dimen>
     <dimen name="et_roomName_padding">5dp</dimen>
+    <dimen name="et_roomLighting_margin">20dp</dimen>
+    <dimen name="et_roomLighting_padding">5dp</dimen>
     <dimen name="b_commit_marginTop">50dp</dimen>
+    <dimen name="layout_trigs_marginTop">8dp</dimen>
+    <dimen name="switch_marginBottom">16dp</dimen>
+    <dimen name="btn_draw_padding">5dp</dimen>
+    <dimen name="tv_activityTitles_txtSize">25sp</dimen>
+    <dimen name="fab_addRoom_dobredWidth">0dp</dimen>
+    <dimen name="tv_header_margin">40dp</dimen>
+    <dimen name="tv_roomName_textSize">20sp</dimen>
+    <dimen name="tv_roomLighting_textSize">20sp</dimen>
+    <dimen name="btn_commit_maeginHorizontal">20dp</dimen>
+    <dimen name="lbl_padding">3dp</dimen>
+    <dimen name="lbl_textSize">20sp</dimen>
+    <dimen name="txt_lightning_padding">8dp</dimen>
+    <dimen name="et_RoomName_width">180sp</dimen>
+    <dimen name="tv_RoomLighting_width">180sp</dimen>
+    <dimen name="tv_RoomLighting_textSize">20sp</dimen>
+    <dimen name="et_RoomName_textSize">20sp</dimen>
 </resources>
